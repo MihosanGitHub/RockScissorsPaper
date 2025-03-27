@@ -5,60 +5,44 @@ string rock = "Камень";
 string scissors = "Ножницы";
 string paper = "Бумага";
 string choice;
-int choice2;
+int win = 0;
 
 void request() {
-    cout << "Введите 'Камень' ИЛИ 'Ножницы' ИЛИ 'Бумага'";
-    cin >> choice;
-}
 
-void random_for_enemy() {
-    int computer_choice = rand() % 3;
-
-    if (computer_choice == 0) {
-        choice2 = 0; // Камень
-    }
-
-    else if (computer_choice == 1) {
-        choice2 = 1; // Ножницы
-    }
-
-    else {
-        choice2 = 2; // Бумага
-    }
-}
-
-void results() {
-
-    int player_choice = 0;
-
-    if (choice == rock) {
-        player_choice = 1;
-    }
-
-    else if (choice == scissors) {
-        player_choice = 2;
-    }
-
-    else if (choice == paper) {
-        player_choice = 3;
-    }
- 
+    cout << "\nВведите 'Камень' ИЛИ 'Ножницы' ИЛИ 'Бумага'\n";
+    
 }
 
 int main()
 {
-    setlocale(LC_ALL, "ru");
+    setlocale(LC_ALL, "Russian");
+
+    system("chcp 1251");
+ 
+    string choice2[3] = { "камень", "ножницы", "бумага" };  
+
     srand(time(0));
 
-    if (choice != rock && choice != scissors && choice != paper) {
-        cout << "Ошибка";
-    }
-
-
+    int a = rand() % 3;
     
-    if (player_choice == choice2) cout << "Ничья";
+   
+    while (win!=1) {
 
-    if (player_choice == 1 && choice2 = 1 &&)
+        request();
+        cin >> choice;
+
+        if (choice == "бумага" && choice2[a] == "камень" || choice == "камень" && choice2[a] == "ножницы" || choice == "ножницы" && choice2[a] == "бумага") {
+            cout << "Победа";
+            win = 1;
+        }
+        else if (choice == choice2[a]) {
+            cout << "Ничья";
+        }
+        else  {
+            cout << "Поражение"; 
+        }
+   } 
 }
 
+
+  
